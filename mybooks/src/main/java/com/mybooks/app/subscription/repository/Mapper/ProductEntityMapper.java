@@ -13,9 +13,12 @@ public interface ProductEntityMapper {
 
 
         @Override
-        public ProductDto fromProductEntity(ProductEntity productEntity) {
-            return null;
+        public List<ProductDto> fromProductEntity(List<ProductEntity> productEntity) {
+            return productEntity.stream()
+                    .map(this::toDto)
+                    .collect(Collectors.toList());
         }
+
 
         @Override
         public List<ProductEntity> toProductEntity(List<ProductDto> productDto) {
@@ -29,14 +32,25 @@ public interface ProductEntityMapper {
                 return null;
             }
             ProductEntity productEntity = new ProductEntity();
-//            productEntity.se(productDto.getVendorId());
-//            productEntity.setProductName(productDto.getProductName());
-//            productEntity.setDescription(productDto.getDescription());
-//            productEntity.setPrice(productDto.getPrice());
+//            productEntity.setVendor(productDto.getVendorId());
+            productEntity.setName(productDto.getProductName());
+            productEntity.setDescription(productDto.getDescription());
+            productEntity.setPrice(productDto.getPrice());
             return productEntity;
+        }
+
+        private ProductDto toDto(ProductEntity productEntity) {
+            if (productEntity == null) {
+                return null;
+            }
+             ProductDto productDto = new ProductDto();
+            productDto.setProductName(productEntity.getName());
+            productDto.setDescription(productEntity.getDescription());
+            productDto.setPrice(productEntity.getPrice());
+            return productDto;
         }
     };
 
-    ProductDto fromProductEntity(ProductEntity productEntity);
+    List<ProductDto> fromProductEntity(List<ProductEntity> productEntity);
     List<ProductEntity> toProductEntity(List<ProductDto> productDto);
 }

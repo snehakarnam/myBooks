@@ -1,6 +1,7 @@
 package com.mybooks.app.subscription.entity;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
@@ -17,6 +18,11 @@ public class ProductEntity {
     @ManyToOne
     @JoinColumn(name = "product_group_id", nullable = false)
     private ProductGroupEntity productGroup;
+
+
+    @OneToOne
+    @JoinColumn(name = "vendor_id", nullable = false)
+    private VendorEntity vendor;
 
     @Column(nullable = false)
     private String name;
@@ -96,6 +102,14 @@ public class ProductEntity {
 
     public void setUpdatedAt(OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public VendorEntity getVendor() {
+        return vendor;
+    }
+
+    public void setVendor(VendorEntity vendor) {
+        this.vendor = vendor;
     }
 }
 

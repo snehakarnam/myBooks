@@ -4,8 +4,10 @@ package com.mybooks.app.subscription.service.Impl;
 
 import com.mybooks.app.subscription.dto.ProductDto;
 import com.mybooks.app.subscription.entity.ProductEntity;
+import com.mybooks.app.subscription.repository.Mapper.ProductEntityMapper;
 import com.mybooks.app.subscription.service.DBGateway.ProductDBGateway;
 import com.mybooks.app.subscription.service.ProductService;
+import org.apache.catalina.mapper.Mapper;
 
 import java.util.List;
 
@@ -17,10 +19,10 @@ public class ProductServiceImpl implements ProductService {
         this.productDBGateway = productDBGateway;
     }
 
-//    @Override
-//    public List<ProductEntity> createProduct(List<ProductDto> productDTO) {
-//        return productDBGateway.createProduct(productDTO);
-//    }
+    @Override
+    public List<ProductDto> createProduct(List<ProductDto> productDTO) {
+       return productDBGateway.createProduct(productDTO);
+    }
 
     @Override
     public ProductDto getProductById(String productId) {
