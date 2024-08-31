@@ -27,22 +27,22 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @Operation(
-            summary = "Create a new product",
-            description = "Creates a new product under a specific vendor",
-            tags = {"Product"}
-    )
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Product created successfully",
-                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ProductDto.class))}),
-            @ApiResponse(responseCode = "400", description = "Invalid input data", content = @Content),
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
-    })
-    @PostMapping
-    public ResponseEntity<ProductDto> createProduct(@Valid @RequestBody List<ProductDto> productDTO) {
-        ProductDto createdProduct = productService.createProduct(productDTO);
-        return ResponseEntity.status(201).body(createdProduct);
-    }
+//    @Operation(
+//            summary = "Create a new product",
+//            description = "Creates a new product under a specific vendor",
+//            tags = {"Product"}
+//    )
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "201", description = "Product created successfully",
+//                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ProductDto.class))}),
+//            @ApiResponse(responseCode = "400", description = "Invalid input data", content = @Content),
+//            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
+//    })
+//    @PostMapping
+//    public ResponseEntity<ProductDto> createProduct(@Valid @RequestBody List<ProductDto> productDTO) {
+//        ProductDto createdProduct = productService.createProduct(productDTO);
+//        return ResponseEntity.status(201).body(createdProduct);
+//    }
 
     @Operation(
             summary = "Get a product by ID",

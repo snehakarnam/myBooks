@@ -17,10 +17,10 @@ public class ProductServiceImpl implements ProductService {
         this.productDBGateway = productDBGateway;
     }
 
-    @Override
-    public List<ProductEntity> createProduct(List<ProductDto> productDTO) {
-        return productDBGateway.createProduct(productDTO);
-    }
+//    @Override
+//    public List<ProductEntity> createProduct(List<ProductDto> productDTO) {
+//        return productDBGateway.createProduct(productDTO);
+//    }
 
     @Override
     public ProductDto getProductById(String productId) {
