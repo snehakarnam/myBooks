@@ -26,6 +26,8 @@ dependencies {
 	implementation 'io.swagger.core.v3:swagger-annotations:2.2.16'
 	implementation 'org.postgresql:postgresql'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'org.springframework.kafka:spring-kafka'
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
 
 }
 
