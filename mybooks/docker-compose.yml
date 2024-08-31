@@ -8,18 +8,18 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/mydatabase
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root123
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/recurring_payments
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
     depends_on:
       - db
 
   db:
     image: postgres:latest
-    container_name: my-postgres-db
+    container_name: recurring_payments
     environment:
-      POSTGRES_DB: mydatabase
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root123
+      POSTGRES_DB: recurring_payments
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
     ports:
       - "5432:5432"
