@@ -4,6 +4,7 @@ package com.mybooks.app.subscription.repository.DBGatewayImpl;
 
 import com.mybooks.app.subscription.dto.ProductDto;
 import com.mybooks.app.subscription.entity.ProductEntity;
+import com.mybooks.app.subscription.repository.Mapper.ProductEntityMapper;
 import com.mybooks.app.subscription.repository.ProductRepository;
 import com.mybooks.app.subscription.service.DBGateway.ProductDBGateway;
 
@@ -19,6 +20,6 @@ public class ProductDBGatewayImpl implements ProductDBGateway {
 
     @Override
     public List<ProductEntity> createProduct(List<ProductDto> productDtoList) {
-        return List.of();
+        return productRepository.saveAll(ProductEntityMapper.MAPPER.toProductEntity(productDtoList));
     }
 }
